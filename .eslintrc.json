@@ -1,0 +1,15 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "default",
+    "ecmaFeatures": {}
+  },
+  "env": {
+    "browser": true,
+    "jquery": true
+  },
+  "rules": {
+    "semi": 2,
+    "eqeqeq": 2
+  }
+}
