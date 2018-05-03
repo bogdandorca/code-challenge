@@ -1,0 +1,40 @@
+// COLORS
+
+// Primary Color
+$color-primary: #0F94CA;
+$color-primary-light: #109DD7;
+$color-primary-lighter: #13BCFF;
+$color-primary-dark: #0B7099;
+$color-primary-darker: #053447;
+
+// Secondary Color
+$color-secondary: #05D7A1;
+$color-secondary-light: #05E4AB;
+$color-secondary-lighter: #06FABB;
+$color-secondary-dark: #049E76;
+$color-secondary-darker: #037356;
+
+// Contrast Colors
+$color-warning-light: #FF5F2C;
+$color-warning: #D14E24;
+$color-warning-dark: #A13C1C;
+
+$color-error-light: #FA2B28;
+$color-error: #CC2320;
+$color-error-dark: #9C1B19;
+
+// Helper Colors
+$color-black: #000;
+$color-grey-lighter: #CCCCCC;
+$color-grey-light: #B0B0B0;
+$color-grey-medium: #8A8A8A;
+$color-grey-dark: #4A4A4A;
+$color-grey-darker: #2B2B2B;
+$color-white: #FFF;
+
+$font-size-body: 14px;
+$font-size-h1: $font-size-body * 3.8;
+
+$shadow-low: 0 1px 6px rgba(0,0,0,0.16), 0 1px 6px rgba(0,0,0,0.23);
+$shadow-mid: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+$shadow-high: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);

@@ -4,6 +4,20 @@
   "main": "index.js",
   "repository": {},
   "license": "MIT",
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+    },
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/jest-serializer-vue"
+    ]
+  },
   "scripts": {
     "lint": "eslint src",
     "dev": "http-server -o",
@@ -15,10 +29,27 @@
     "jsdom": "9.11.0",
     "jsdom-global": "2.1.1",
     "mocha": "^3.2.0",
-    "should": "^11.2.0"
+    "should": "^11.2.0",
+    "@vue/component-compiler-utils": "^1.0.0",
+    "@vue/server-test-utils": "^1.0.0-beta.15",
+    "@vue/test-utils": "^1.0.0-beta.15",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.3",
+    "babel-loader": "^7.1.4",
+    "eslint-plugin-vue": "^4.5.0",
+    "jest": "^22.4.3",
+    "jest-serializer-vue": "^1.0.0",
+    "node-sass": "^4.8.3",
+    "parcel-bundler": "^1.7.1",
+    "parcel-plugin-eslint": "^1.0.4",
+    "parcel-plugin-vue": "^1.5.0",
+    "vue-jest": "^2.5.0",
+    "vue-template-compiler": "^2.5.16"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "jquery": "^3.1.1"
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
   }
 }
