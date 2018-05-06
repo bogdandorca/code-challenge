@@ -22,7 +22,6 @@
   },
   "scripts": {
     "start": "parcel build index.html && node index.js",
-    "postinstall": "parcel build index.html",
     "lint": "eslint src",
     "dev": "parcel index.html",
     "test": "./node_modules/jest/bin/jest.js"
