@@ -2,6 +2,9 @@
   "name": "liveplay-code-challenge",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": "8.6.x"
+  },
   "license": "MIT",
   "jest": {
     "moduleFileExtensions": [
@@ -19,6 +22,7 @@
   },
   "scripts": {
     "start": "parcel build index.html && node index.js",
+    "postinstall": "parcel build index.html",
     "lint": "eslint src",
     "dev": "parcel index.html",
     "test": "./node_modules/jest/bin/jest.js"
