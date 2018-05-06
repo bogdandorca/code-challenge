@@ -1,10 +1,10 @@
 <template>
-    <button :class="type">{{text}}</button>
+    <button :class="type" @click="$emit('click')">{{text}}</button>
 </template>
 
 <script>
     export default {
-        name: 'cc-button',
+        name: 'CcButton',
         props: {
             type: {
                 default: 'default',
@@ -22,8 +22,8 @@
     }
 </script>
 
-<style lang="scss">
-    @import '../../assets/styles/variables';
+<style lang="scss" scoped>
+    @import '../../../assets/styles/variables';
     button {
         border-radius: 2px;
         padding: 10px 20px;

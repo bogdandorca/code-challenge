@@ -8,31 +8,40 @@ export default new Vuex.Store({
     strict: true,
     state: {
         characters: [],
-        comics: []
+        comics: [],
+        selectedCharacters: {
+            character1: '',
+            character2: ''
+        }
     },
     getters: {
         characters: state => state.characters,
         comics: state => state.comics,
-        character: (state, characterId) => {
-            state.characters.filter(character => character.id === characterId);
-        }
+        selectedCharacters: state => state.selectedCharacters
     },
     mutations: {
-        ADD_CHARACTER: (state, payload) => state.characters.push(payload),
-        INIT_CHARACTERS: (state, payload) => state.characters = payload,
-        INIT_COMICS: (state, payload) => state.comics = payload
+        SET_CHARACTERS: (state, payload) => state.characters = payload,
+        SET_COMICS: (state, payload) => state.comics = payload,
+        SET_SELECTED_CHARACTERS: (state, payload) => state.selectedCharacters = payload,
+        SET_SELECTED_CHARACTER: (state, payload) => state.selectedCharacters[payload.key] = payload.value
     },
     actions: {
-        addCharacter: ({ commit }, payload) => commit('ADD_CHARACTER', payload),
         initCharacters: ({ commit }) => {
-            api.getAllCharacters().then(characters => commit('INIT_CHARACTERS', characters));
+            api.getAllCharacters().then(characters => commit('SET_CHARACTERS', characters));
         },
-        initComics: ({ commit }) => {
-            api.getAllComics().then(comics => {
-                // Join all the comics in a single array
-                const joinedComics = [].concat.apply([], comics);
-                commit('INIT_COMICS', joinedComics);
-            });
+        setComics: ({ commit }, payload) => {
+            commit('SET_COMICS', payload);
+        },
+        setComicsByCharacters: ({ commit }, payload) => {
+            api.getComicByCharacters(payload.character1, payload.character2)
+                .then(comics => commit('SET_COMICS', comics));
+        },
+        setSelectedCharacters: ({ commit }, payload) => {
+            commit('SET_SELECTED_CHARACTERS', payload);
+        },
+        setSelectedCharacter: ({ commit }, payload) => {
+            commit('SET_SELECTED_CHARACTER', payload);
         }
     }
+
 });

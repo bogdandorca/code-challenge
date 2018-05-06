@@ -1,18 +1,18 @@
 export default {
-    _charactersEndpoint: `/data/all_characters.json`,
-    _comicsCommonPath: `/data/comics-`,
-    _comicsIds: [1009220, 1009351, 1009368, 1009610, 1009664, 1009718],
-
     getAllCharacters() {
-        return fetch(this._charactersEndpoint)
+        return fetch('/api/characters')
             .then(res => res.json());
     },
-
     getAllComics() {
-        // Get the list of comics and concatenate them
-        const promises = this._comicsIds.map((batchId) => fetch(`${this._comicsCommonPath}${batchId}.json`));
-
-        return Promise.all(promises)
-            .then((responses) => Promise.all(responses.map((response) => response.json())));
+        return fetch('/api/comics')
+            .then(res => res.json());
+    },
+    getComicById(id) {
+        return fetch(`/api/comics/${id}`)
+            .then(res => res.json());
+    },
+    getComicByCharacters(char1, char2) {
+        return fetch(`/api/comics/${char1}/${char2}`)
+            .then(res => res.json());
     }
 };

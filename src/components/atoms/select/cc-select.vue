@@ -3,11 +3,13 @@
         <select :id="uniqueId"
                 :name="name"
                 :value="value"
-                v-on:change="$emit('change', $event.target.value)">
+                @change="$emit('change', $event.target.value)">
 
             <option disabled value="">{{defaultText}}</option>
+
             <option v-for="(option, index) in options"
-                    @click="$emit('')"
+                    :key="index"
+                    :selected="option[valueKey] === value"
                     :value="option[valueKey]">
                 {{option[textKey]}}
             </option>
@@ -17,7 +19,7 @@
 
 <script>
     export default {
-        name: 'cc-select',
+        name: 'CcSelect',
         props: {
             name: {
                 type: String,
@@ -46,8 +48,8 @@
     }
 </script>
 
-<style lang="scss">
-    @import '../../assets/styles/variables';
+<style lang="scss" scoped>
+    @import '../../../assets/styles/variables';
 
     select {
         padding: 10px;
