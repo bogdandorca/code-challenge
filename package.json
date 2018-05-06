@@ -2,7 +2,13 @@
   "name": "liveplay-code-challenge",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": {},
+  "engines": {
+    "node": "8.0.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bogdandorca/code-challenge.git"
+  },
   "license": "MIT",
   "jest": {
     "moduleFileExtensions": [
@@ -19,7 +25,8 @@
     ]
   },
   "scripts": {
-    "start": "parcel build index.html && node server.js",
+    "start": "./node_modules/parcel/bin/cli.js build index.html && node index.js",
+    "postinstall": "./node_modules/parcel/bin/cli.js build index.html --public-url ./src",
     "lint": "eslint src",
     "dev": "parcel index.html",
     "test": "mocha specs/**/*-specs.js src/**/*-specs.js"
@@ -40,6 +47,7 @@
     "jsdom-global": "2.1.1",
     "mocha": "^3.2.0",
     "node-sass": "^4.8.3",
+    "parcel": "^1.8.1",
     "parcel-bundler": "^1.7.1",
     "parcel-plugin-eslint": "^1.0.4",
     "parcel-plugin-vue": "^1.5.0",
