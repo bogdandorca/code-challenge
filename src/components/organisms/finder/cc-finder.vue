@@ -1,13 +1,20 @@
 <template>
-    <fieldset class="finder">
-        <legend>Select a couple of characters</legend>
+    <div class="finder">
+        <h3>Select a couple of characters</h3>
 
-        <character-selector name="character1" label="Character 1:"></character-selector>
+        <character-selector name="character1"
+                            label="Character 1:">
+        </character-selector>
 
-        <character-selector name="character2" label="Character 2:"></character-selector>
+        <character-selector name="character2"
+                            label="Character 2:">
+        </character-selector>
 
-        <cc-button text="Buscar comics" type="primary" @click="selectCharacters"></cc-button>
-    </fieldset>
+        <cc-button :disabled="buttonIsDisabled"
+                   text="Buscar comics"
+                   type="primary"
+                   @click="selectCharacters"></cc-button>
+    </div>
 </template>
 
 <script>
@@ -23,6 +30,9 @@
         computed: {
             selectedCharacters() {
                 return this.$store.getters.selectedCharacters;
+            },
+            buttonIsDisabled() {
+                return !(this.selectedCharacters.character1 && this.selectedCharacters.character2);
             }
         },
         methods: {
@@ -31,8 +41,6 @@
 
                 if (selectedCharacters.character1 && selectedCharacters.character2) {
                     this.updateRouteParams();
-                } else {
-                    // TODO: ERROR
                 }
             },
             updateRouteParams() {
@@ -44,3 +52,34 @@
         }
     }
 </script>
+
+<style lang="scss" scoped>
+    @import '../../../assets/styles/variables';
+
+    .finder {
+        width: 40%;
+        height: 270px;
+        margin: -135px auto 0;
+        box-sizing: border-box;
+        padding: 20px;
+        color: $color-grey-dark;
+        font-family: $font-family-body;
+        background-color: $color-white;
+        border-radius: 2px;
+        box-shadow: $shadow-mid;
+    }
+
+    .characters-selected {
+        margin-top: -270px;
+    }
+
+    h3 {
+        margin: 0;
+        padding-bottom: 10px;
+        font-family: $font-family-heading;
+    }
+
+    button {
+        margin-top: 10px;
+    }
+</style>

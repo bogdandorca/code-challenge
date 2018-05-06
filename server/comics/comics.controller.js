@@ -30,29 +30,32 @@ class ComicsController {
         }));
     }
 
+    formatCharactersObject(comic) {
+        const {id, characters, title} = comic;
+        return {
+            id,
+            title,
+            characters: Array.prototype.join.call(characters, ', ')
+        };
+    }
+
     async initComics() {
         this.comics = [].concat.apply([], await this.fetchComics());
     }
 
     async getComics() {
-        if (!this.comics.length) await this.initComics();
-
         return this.comics;
     }
 
     async getComicById(id) {
-        if (!this.comics.length) await this.initComics();
-
         return this.comics.filter(comic => comic.id === +id);
     }
 
     async getComicByCharacters(char1, char2) {
-        if (!this.comics.length) await this.initComics();
-
         return this.comics.filter(comic => {
             return comic.characters.indexOf(char1) > -1
                 && comic.characters.indexOf(char2) > -1;
-        });
+        }).map(this.formatCharactersObject);
     }
 }
 

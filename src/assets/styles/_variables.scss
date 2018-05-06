@@ -33,7 +33,11 @@ $color-grey-darker: #2B2B2B;
 $color-white: #FFF;
 
 $font-size-body: 14px;
-$font-size-h1: $font-size-body * 3.8;
+$font-size-h1: $font-size-body * 4;
+$font-size-sub-title: $font-size-body * 2;
+
+$font-family-heading: 'Francois One', sans-serif;
+$font-family-body: 'Lato', sans-serif;
 
 $shadow-low: 0 1px 6px rgba(0,0,0,0.16), 0 1px 6px rgba(0,0,0,0.23);
 $shadow-mid: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);

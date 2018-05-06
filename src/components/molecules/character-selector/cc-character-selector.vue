@@ -47,3 +47,10 @@
         }
     }
 </script>
+
+<style lang="scss" scoped>
+    .hero-selector {
+        padding: 10px 0;
+        width: 100%;
+    }
+</style>

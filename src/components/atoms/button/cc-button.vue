@@ -1,5 +1,9 @@
 <template>
-    <button :class="type" @click="$emit('click')">{{text}}</button>
+    <button :class="type"
+            :disabled="disabled"
+            @click="$emit('click')">
+        {{text}}
+    </button>
 </template>
 
 <script>
@@ -13,6 +17,10 @@
                     const acceptedValues = ['default', 'primary', 'secondary', 'warning', 'error'];
                     return acceptedValues.indexOf(val) !== -1;
                 }
+            },
+            disabled: {
+                default: false,
+                type: Boolean
             },
             text: {
                 default: 'Click',
@@ -32,12 +40,7 @@
         box-shadow: $shadow-low;
         transition: all 0.3s cubic-bezier(.25,.8,.25,1);
         cursor: pointer;
-        &:hover {
-            box-shadow: $shadow-mid;
-        }
-        &:focus {
-            outline: none;
-        }
+
         // Button types
         &.default {
             background-color: $color-white;
@@ -55,6 +58,24 @@
         &.error {
             background-color: $color-error;
             color: $color-white;
+        }
+
+        // Button states
+        &:hover {
+            box-shadow: $shadow-mid;
+        }
+        &:focus {
+            outline: none;
+        }
+        &:disabled {
+            cursor: default;
+            background-color: $color-grey-lighter;
+            color: $color-white;
+            box-shadow: none;
+
+            &:hover {
+                box-shadow: none;
+            }
         }
     }
 </style>

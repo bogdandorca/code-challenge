@@ -1,5 +1,8 @@
 <template>
-    <label :for="uniqueId">{{label}}
+    <label :for="uniqueId">
+
+        {{label}}
+
         <select :id="uniqueId"
                 :name="name"
                 :value="value"
@@ -52,10 +55,13 @@
     @import '../../../assets/styles/variables';
 
     select {
+        width: 100%;
+        height: 35px;
         padding: 10px;
-        border-radius: 2px;
         border: 1px solid $color-grey-light;
+        border-radius: 2px;
         font-size: 14px;
+        display: block;
         &:focus {
             outline: none;
         }

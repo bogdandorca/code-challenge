@@ -7,8 +7,8 @@ new Vue({
     el: '#app',
     store,
     router,
-    render: h => h(App),
     created: function() {
         this.$store.dispatch('initCharacters');
     },
+    render: h => h(App)
 });
