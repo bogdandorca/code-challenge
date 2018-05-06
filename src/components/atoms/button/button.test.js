@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils';
-import CsButton from './cc-button.vue';
+import CcButton from './cc-button.vue';
 
-describe('TisButton', () => {
-    const wrapper = mount(CsButton);
+describe('CcButton', () => {
+    const wrapper = mount(CcButton);
 
     it('Should render a button', () => {
         expect(wrapper.contains('button')).toBe(true);
@@ -20,7 +20,11 @@ describe('TisButton', () => {
     });
 
     it('Should pass the disabled prop to the button', () => {
+        wrapper.setProps({
+            disabled: true
+        });
 
+        expect(wrapper.attributes().disabled).toBe('disabled');
     });
 
     it('Should pass the type prop to the button', () => {
